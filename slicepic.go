@@ -1,7 +1,6 @@
 package main
 
 import "golang.org/x/tour/pic"
-import "fmt"
 
 func Pic(dx, dy int) [][]uint8 {
 	s := make([][]uint8, dy, dy)
@@ -15,7 +14,5 @@ func Pic(dx, dy int) [][]uint8 {
 }
 
 func main() {
-	var p = Pic(8, 8)
-	fmt.Println(p)
 	pic.Show(Pic)
 }
