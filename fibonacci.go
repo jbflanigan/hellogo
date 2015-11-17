@@ -5,12 +5,14 @@ import "fmt"
 // fibonacci is a function that returns
 // a function that returns an int.
 func fibonacci() func() int {
-	prev, penult := 1, 0
+	next, current := 1, 0
 	return func() int {
-		s := prev + penult;
-		penult = prev
-		prev = s
-		return s
+		s := next + current;
+		defer func() {	
+			current = next
+		   	next = s
+		}()
+		return current
 	}
 }
 
